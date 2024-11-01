@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// cricket-scoring-app-frontend/src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import LiveMatch from './pages/LiveMatch';
+import MatchHistory from './pages/MatchHistory';
+import Teams from './pages/Teams';
+import Players from './pages/Players';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} exact />
+        <Route path="/live-match" component={LiveMatch} />
+        <Route path="/match-history" component={MatchHistory} />
+        <Route path="/teams" component={Teams} />
+        <Route path="/players" component={Players} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
