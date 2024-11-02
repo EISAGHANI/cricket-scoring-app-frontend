@@ -15,9 +15,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} exact />
-        <Route path="/live-match" component={LiveMatch} />
-        <Route path="/match-history" component={MatchHistory} />
-        <Route path="/teams" component={Teams} />
+        <Route path="/live-match" element={<LiveMatch/>} />
+        <Route path="/match-history" element={<MatchHistory/>} />
+        <Route path="/teams" element={<Teams/>} />
         <Route path="/players" component={Players} />
       </Routes>
       <Footer />
