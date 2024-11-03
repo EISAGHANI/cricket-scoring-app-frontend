@@ -18,7 +18,7 @@ function App() {
         <Route path="/live-match" element={<LiveMatch/>} />
         <Route path="/match-history" element={<MatchHistory/>} />
         <Route path="/teams" element={<Teams/>} />
-        <Route path="/players" component={Players} />
+        <Route path="/players" element={<Players/>} />
       </Routes>
       <Footer />
     </Router>
