@@ -8,10 +8,12 @@ import Teams from './pages/Teams';
 import Players from './pages/Players';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Banner from './components/Banner';
 
 function App() {
   return (
     <Router>
+      <Banner />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} exact />
