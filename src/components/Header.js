@@ -11,11 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 import { Link as RouterLink } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['live-match', 'match-history', 'teams', 'players'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -42,14 +42,14 @@ function Header() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          <IconButton edge="start" color="inherit" aria-label="menu" component={RouterLink} to="/">
+          <IconButton sx={{ display: { xs: 'none', md: 'flex' } }} edge="start" color="inherit" aria-label="menu" component={RouterLink} to="/">
             <SportsCricketIcon fontSize="large" />
           </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -92,17 +92,22 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <RouterLink to={`/${page.toLowerCase()}`}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
+                </RouterLink>
+              </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+          <IconButton sx={{ display: { xs: 'flex', md: 'none' } }} edge="start" color="inherit" aria-label="menu" component={RouterLink} to="/">
+            <SportsCricketIcon fontSize="large" />
+          </IconButton>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -114,7 +119,7 @@ function Header() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            DEMO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -122,6 +127,8 @@ function Header() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                component={RouterLink}
+                to={`/${page.toLowerCase()}`}
               >
                 {page}
               </Button>
